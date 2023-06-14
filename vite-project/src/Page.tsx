@@ -2,47 +2,45 @@ import { useEffect, useState } from "react";
 
 type PageProps = {
     title: string,
-    limit: number,
     children: React.ReactNode
 }
 
-type CatFact = {
-    fact: string,
-    length: number
+type Company = {
+    id: string,
+    employees: any[],
+    name: string,
+    adress: string
 }
 
-const Page = ({ title, children, limit }: PageProps) => {
+const Page = ({ title, children}: PageProps) => {
 
     const [isActive, setIsActive] = useState(false);
-    const [catFacts, setCatFacts] = useState<CatFact[]>([]);
-    const [isLoadingCatFacts, setIsLoadingCatFacts] = useState(true);
+    const [companies, setCompanies] = useState<Company[]>([]);
     
     useEffect(() => {
         const loadData = async () => {
-            const res = await fetch(`https://catfact.ninja/facts?limit=${limit}`);
+            const res = await fetch(`http://localhost:5014/api/demo/getall`);
             const data = await res.json();
-            setCatFacts(data.data);
-            setIsLoadingCatFacts(false);
-        }
-        setIsLoadingCatFacts(true);
-        loadData();
-    }, [ limit ])
+            console.log("response", data);
+            setCompanies(data);
 
-    console.log('catFacts', catFacts);
+        }
+        loadData();
+    }, [])
+
+    console.log('Companies', companies);
 
     return (
         <>
             <h1>{title}</h1>
             <p>{children}</p>
             <p>{isActive && <p>Hej</p>}</p>
-            <p>Limit: {limit}</p>
-            {isLoadingCatFacts ? "Laddar..." :
-                <ul>
-                    {
-                        catFacts.map((catFact) => <li>{catFact.fact}</li>)
-                    }
-                </ul>
-            }
+            <ul>{
+                companies.map((company) => 
+                    <li>{company.name}</li>    
+                )
+                }
+            </ul>
             
         </>
     )
