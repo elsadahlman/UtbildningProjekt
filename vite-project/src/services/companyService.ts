@@ -1,14 +1,4 @@
-type CompanyCreationDto = {
-    name: string,
-    address: string,
-    country: string,
-    employees: Employee[]
-}
-
-type Employee = {
-
-}
-
+import CompanyForCreation from "../models/CompanyForCreation";
 
 export const getCompanies = async () => {
     await fetch(`http://localhost:5014/api/companies`)
@@ -16,7 +6,7 @@ export const getCompanies = async () => {
     .then((x) => {return x});
 }
 
-export const postCompany = async (data: CompanyCreationDto) => {
+export const postCompany = async (data: CompanyForCreation) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -25,7 +15,7 @@ export const postCompany = async (data: CompanyCreationDto) => {
     await fetch(`http://localhost:5014/api/companies`, requestOptions).then((x) => {x.json()}).then((x) => {return x});
 }
 
-export const getEmployeesByCompanyId = async (id: Number) => {
+export const getEmployeesByCompanyId = async (id: string) => {
     await fetch(`http://localhost:5014/api/employees/${id}`)
     .then((x) => x.json())
     .then((x) => {return x});

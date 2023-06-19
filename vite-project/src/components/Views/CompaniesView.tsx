@@ -1,40 +1,12 @@
-import { useEffect, useState } from "react"
+import Company from "../../models/Company";
 
-type PageProps = {
-    title: string,
-    children: React.ReactNode
-}
+const CompaniesView = (props: {companies: Company[]}) => {
 
-type Company = {
-    id: string,
-    employees: any[],
-    name: string,
-    adress: string
-}
-
-const CompaniesView = ({ title, children}: PageProps) => {
-
-    const [isActive, setIsActive] = useState(false);
-    const [companies, setCompanies] = useState<Company[]>([]);
-    
-    useEffect(() => {
-        const loadData = async () => {
-            const res = await fetch(`http://localhost:5014/api/companies`);
-            const data = await res.json();
-            console.log("response", data);
-            setCompanies(data);
-
-        }
-        loadData();
-    }, [])
-
-    console.log('Companies', companies);
+    const {companies} = props;
 
     return (
         <>
-            <h1>{title}</h1>
-            <p>{children}</p>
-            <p>{isActive && <p>Hej</p>}</p>
+        <h1>Företagslista</h1>
             <ul>{
                 companies.map((company) => 
                     <li>{company.name}</li>
@@ -44,3 +16,5 @@ const CompaniesView = ({ title, children}: PageProps) => {
         </>
     )
 }
+
+export default CompaniesView

@@ -1,21 +1,7 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { postCompany } from "../../services/companyService"
-type Inputs = {
-    name: string,
-    address: string,
-    country: string
-}
+import { SubmitHandler, useForm } from "react-hook-form";
+import { postCompany } from "../../services/companyService";
 
-type CompanyCreationDto = {
-    name: string,
-    address: string,
-    country: string,
-    employees: Employee[]
-}
-
-type Employee = {
-
-}
+import CompanyForCreation from "../../models/CompanyForCreation";
 
 export const CompanyCreationForm = () => {
 
@@ -24,13 +10,13 @@ export const CompanyCreationForm = () => {
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm<CompanyCreationDto>()
+    } = useForm<CompanyForCreation>()
 
-    const postData = async (data: CompanyCreationDto) => {
+    const postData = async (data: CompanyForCreation) => {
         postCompany(data);
     }
     
-    const onSubmit: SubmitHandler<CompanyCreationDto> = (data) => {
+    const onSubmit: SubmitHandler<CompanyForCreation> = (data) => {
         console.log("Input: ", data);
         data.employees = [];
         console.log(postData(data));
@@ -68,7 +54,7 @@ export const CompanyCreationForm = () => {
                             type="text"></input>
                     </div>
 
-                <button type="submit">Logga in</button>
+                <button type="submit">Skapa företag</button>
             </form>
         </>
         )
