@@ -19,7 +19,7 @@ const Page = ({ title, children}: PageProps) => {
     
     useEffect(() => {
         const loadData = async () => {
-            const res = await fetch(`http://localhost:5014/api/demo/getall`);
+            const res = await fetch(`http://localhost:5014/api/companies`);
             const data = await res.json();
             console.log("response", data);
             setCompanies(data);
