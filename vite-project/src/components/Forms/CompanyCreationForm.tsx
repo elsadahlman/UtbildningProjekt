@@ -1,4 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form"
+import { postCompany } from "../../services/companyService"
 type Inputs = {
     name: string,
     address: string,
@@ -26,16 +27,7 @@ export const CompanyCreationForm = () => {
     } = useForm<CompanyCreationDto>()
 
     const postData = async (data: CompanyCreationDto) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        }
-        // const res = await fetch(`http://localhost:5014/api/companies`, requestOptions).then((x) => {const output = x.json()}).then((x) => {return x});
-        await fetch(`http://localhost:5014/api/companies`, requestOptions).then((x) => {x.json()}).then((x) => {return x});
-        // const output = await res.json();
-
-        // return output;
+        postCompany(data);
     }
     
     const onSubmit: SubmitHandler<CompanyCreationDto> = (data) => {

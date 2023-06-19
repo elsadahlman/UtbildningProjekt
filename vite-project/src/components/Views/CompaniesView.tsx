@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { CompanyCreationForm } from "./components/Forms/CompanyCreationForm";
+import { useEffect, useState } from "react"
 
 type PageProps = {
     title: string,
@@ -13,7 +12,7 @@ type Company = {
     adress: string
 }
 
-const Page = ({ title, children}: PageProps) => {
+const CompaniesView = ({ title, children}: PageProps) => {
 
     const [isActive, setIsActive] = useState(false);
     const [companies, setCompanies] = useState<Company[]>([]);
@@ -33,19 +32,15 @@ const Page = ({ title, children}: PageProps) => {
 
     return (
         <>
-            <CompanyCreationForm />
             <h1>{title}</h1>
             <p>{children}</p>
             <p>{isActive && <p>Hej</p>}</p>
             <ul>{
                 companies.map((company) => 
-                    <li>{company.name}</li>    
+                    <li>{company.name}</li>
                 )
                 }
             </ul>
-            
         </>
     )
 }
-
-export default Page;
