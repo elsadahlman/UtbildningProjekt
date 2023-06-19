@@ -1,18 +1,25 @@
+import { useState } from "react";
 import Company from "../../models/Company";
+import CompanyView from "./CompanyView"
 
 const CompaniesView = (props: {companies: Company[]}) => {
+
 
     const {companies} = props;
 
     return (
         <>
         <h1>Företagslista</h1>
-            <ul>{
-                companies.map((company) => 
-                    <li>{company.name}</li>
-                )
-                }
-            </ul>
+            
+        {
+                
+         companies.map(company => 
+
+            <CompanyView company = {company}/>
+            )  
+        
+        }
+
         </>
     )
 }
