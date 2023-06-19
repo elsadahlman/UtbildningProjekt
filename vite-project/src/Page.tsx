@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CompanyCreationForm } from "./components/CompanyCreationForm/CompanyCreationForm";
 
 type PageProps = {
     title: string,
@@ -32,6 +33,7 @@ const Page = ({ title, children}: PageProps) => {
 
     return (
         <>
+            <CompanyCreationForm />
             <h1>{title}</h1>
             <p>{children}</p>
             <p>{isActive && <p>Hej</p>}</p>
