@@ -4,8 +4,8 @@ import CompanyView from "./CompanyView"
 
 const CompaniesView = (props: {companies: Company[]}) => {
 
-
     const {companies} = props;
+    const [companyList, setCompanyList] = useState(companies);
 
     return (
         <>
@@ -13,9 +13,9 @@ const CompaniesView = (props: {companies: Company[]}) => {
             
         {
                 
-         companies.map(company => 
+                companyList.map(company => 
 
-            <CompanyView company = {company}/>
+            <CompanyView company = {company} setCompanyList={setCompanyList}/>
             )  
         
         }

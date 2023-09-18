@@ -3,6 +3,7 @@ import { CompanyCreationForm } from "./components/Forms/CompanyCreationForm";
 import CompaniesView from "./components/Views/CompaniesView";
 import Company from "./models/Company";
 import CompanyView from "./components/Views/CompanyView";
+import styled from "styled-components";
 
 const App = () => {
 
@@ -22,17 +23,21 @@ const App = () => {
       }, [])
   
       console.log('Companies fetched:', companies);
+
+      const StyledApp = styled.div`
+        padding: 50px;
+      `;
   
       return (
-          <>
+          <StyledApp>
               <h1>Companies</h1>
               <CompanyCreationForm />
 
               {(loading ? 
               <p>"laddar.."</p>
-              : <><CompaniesView companies={companies} /> <CompanyView company = {companies[0]}/></>)}
+              : companies.length > 0 && <><CompaniesView companies={companies} /> </>)}
               
-          </>
+          </StyledApp>
       )
   }
 export default App

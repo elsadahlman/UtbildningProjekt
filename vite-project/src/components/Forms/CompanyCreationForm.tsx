@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { postCompany } from "../../services/companyService";
+import {styled} from "styled-components";
 
 import CompanyForCreation from "../../models/CompanyForCreation";
 
@@ -22,10 +23,19 @@ export const CompanyCreationForm = () => {
         console.log(postData(data));
     }
 
+    const StyledForm = styled.form`
+    `
+
+    const StyledSubmitButton = styled.button`
+        background-color: #a0db8e;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    `
+
     return (
         <>
             <h1>Skapa företag</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <StyledForm onSubmit={handleSubmit(onSubmit)}>
 
                     <div>
                         <label>Namn:</label>
@@ -54,8 +64,8 @@ export const CompanyCreationForm = () => {
                             type="text"></input>
                     </div>
 
-                <button type="submit">Skapa företag</button>
-            </form>
+                <StyledSubmitButton type="submit">Skapa företag</StyledSubmitButton>
+            </StyledForm>
         </>
         )
 }

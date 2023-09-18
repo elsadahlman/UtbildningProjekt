@@ -20,3 +20,13 @@ export const getEmployeesByCompanyId = async (id: string) => {
     .then((x) => x.json())
     .then((x) => {return x});
 }
+
+export const deleteCompanyById = async (id: string) => {
+    const requestOptions = {
+        method: 'DELETE'
+    }
+
+    await fetch(`http://localhost:5014/api/companies/${id}`, requestOptions)
+    .then((x) => x.json())
+    .then((x) => {return x});
+}
