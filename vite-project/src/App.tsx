@@ -25,7 +25,7 @@ const App = () => {
       const StyledApp = styled.div`
         padding: 50px;
       `;
-  
+    //test
       return (
         <>
         {loading  && "Loading...."}
@@ -33,7 +33,7 @@ const App = () => {
           <StyledApp>
               <h1>Companies</h1>
               
-
+          
               <Companies companies={companies} setCompanies={setCompanies}/>
 
 
