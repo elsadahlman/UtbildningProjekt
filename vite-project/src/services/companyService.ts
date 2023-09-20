@@ -1,9 +1,8 @@
 import CompanyForCreation from "../models/CompanyForCreation";
 
 export const getCompanies = async () => {
-    await fetch(`http://localhost:5014/api/companies`)
-    .then((x) => x.json())
-    .then((x) => {return x});
+    const response = await fetch(`http://localhost:5014/api/companies`)
+    return await response.json()
 }
 
 export const postCompany = async (data: CompanyForCreation) => {
@@ -12,21 +11,26 @@ export const postCompany = async (data: CompanyForCreation) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     }
-    await fetch(`http://localhost:5014/api/companies`, requestOptions).then((x) => {x.json()}).then((x) => {return x});
+    const response = await fetch(`http://localhost:5014/api/companies`, requestOptions);
+    if (!response.ok) {
+        throw new Error('Unable to post new Company' )
+    }
 }
 
 export const getEmployeesByCompanyId = async (id: string) => {
-    await fetch(`http://localhost:5014/api/employees/${id}`)
-    .then((x) => x.json())
-    .then((x) => {return x});
+    const response = await fetch(`http://localhost:5014/api/employees/${id}`);
+    if (!response.ok) {
+        throw new Error('Unable to get employees' )
+    }
+    return response.json()
 }
 
-export const deleteCompanyById = async (id: string) => {
+export const deleteCompanyById = async (id: string): Promise<void> => {
     const requestOptions = {
         method: 'DELETE'
     }
-
-    await fetch(`http://localhost:5014/api/companies/${id}`, requestOptions)
-    .then((x) => x.json())
-    .then((x) => {return x});
+    const response = await fetch(`http://localhost:5014/api/companies/${id}`, requestOptions)
+    if (!response.ok) {
+        throw new Error('Unable to delete ' + id)
+    }
 }
