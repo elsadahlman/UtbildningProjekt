@@ -1,8 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { postCompany } from "../../services/companyService";
+import { postCompany } from "../services/companyService";
 import {styled} from "styled-components";
 
-import CompanyForCreation from "../../models/CompanyForCreation";
+import CompanyForCreation from "../models/CompanyForCreation";
 
 export const CompanyCreationForm = () => {
 

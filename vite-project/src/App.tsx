@@ -1,43 +1,44 @@
 import { useEffect, useState } from "react";
-import { CompanyCreationForm } from "./components/Forms/CompanyCreationForm";
-import CompaniesView from "./components/Views/CompaniesView";
-import Company from "./models/Company";
-import CompanyView from "./components/Views/CompanyView";
 import styled from "styled-components";
+import Company from "./models/Company";
+import { Companies } from "./components/Companies";
 
 const App = () => {
 
-  
-      const [companies, setCompanies] = useState<Company[]>([]);
-      const [loading, setLoading] = useState(true);
+    const [companies, setCompanies] = useState<Company[]>([])
+    const [loading, setLoading] = useState<boolean>(false);
+
+    useEffect(() => {
+      const loadData = async () => {
+          setLoading(true);
+          const res = await fetch(`http://localhost:5014/api/companies`);
+          const data = await res.json();
+          console.log("response", data);
+          setCompanies(data);
+          setLoading(false);
+      }
       
-      useEffect(() => {
-          const loadData = async () => {
-              const res = await fetch(`http://localhost:5014/api/companies`);
-              const data = await res.json();
-              console.log("response", data);
-              setCompanies(data);
-              setLoading(false);
-          }
-          loadData();
-      }, [])
-  
-      console.log('Companies fetched:', companies);
+      loadData();
+  }, [])
+
 
       const StyledApp = styled.div`
         padding: 50px;
       `;
   
       return (
+        <>
+        {loading  && "Loading...."}
+
           <StyledApp>
               <h1>Companies</h1>
-              <CompanyCreationForm />
-
-              {(loading ? 
-              <p>"laddar.."</p>
-              : companies.length > 0 && <><CompaniesView companies={companies} /> </>)}
               
+
+              <Companies companies={companies} setCompanies={setCompanies}/>
+
+
           </StyledApp>
+          </>
       )
   }
 export default App

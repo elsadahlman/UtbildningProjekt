@@ -1,6 +1,6 @@
-import Company from "../../models/Company";
+import Company from "../../../../models/Company";
 import styled from "styled-components";
-import { deleteCompanyById, getCompanies } from "../../services/companyService";
+import { deleteCompanyById, getCompanies } from "../../../../services/companyService";
 import { SubmitHandler } from "react-hook-form";
 
 const CompanyView = (props: {company: Company, setCompanyList: any}) => {
