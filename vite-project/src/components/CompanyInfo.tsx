@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Company from "../models/Company";
+import { useUserContext } from '../context/UserContext';
+import { AddEmployeeForm } from "./AddEmployeeForm";
+import CompanyForUpdate from "../models/CompanyForUpdate";
 
 const StyledCompanyView = styled.div`
 background-color: #fff4b9;
@@ -13,20 +16,22 @@ background-color: #ff6bbf;
 `
 
 
-export const CompanyInfo = ({company, onDelete}: {company: Company, onDelete: (id: string) => void}) =>{
+export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, onDelete: (id: string) => void, onUpdate: (id:string, data:CompanyForUpdate) => void}) =>{
     
+    const {userState} = useUserContext();
 
     return (
         <StyledCompanyView>
             <h3>{company.name}</h3>
             <p><b>Location:</b> {company.address}</p>
+            <AddEmployeeForm company={company} onUpdate={onUpdate}></AddEmployeeForm>
             <ul>{
                     company.employees.map((employee) => 
                         <li>{employee.name}</li>
                     )
                 }
             </ul>
-            <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>Ta bort företag</StyledAddCompanyButton>
+            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>Ta bort företag</StyledAddCompanyButton>}
 
         </StyledCompanyView>
     )

@@ -1,4 +1,6 @@
+import Company from "../models/Company";
 import CompanyForCreation from "../models/CompanyForCreation";
+import CompanyForUpdate from "../models/CompanyForUpdate";
 
 export const getCompanies = async () => {
     const response = await fetch(`http://localhost:5014/api/companies`);
@@ -35,5 +37,18 @@ export const deleteCompanyById = async (id: string): Promise<void> => {
     const response = await fetch(`http://localhost:5014/api/companies/${id}`, requestOptions)
     if (!response.ok) {
         throw new Error('Unable to delete ' + id)
+    }
+}
+
+export const updateCompanyById = async (id: string, company: CompanyForUpdate): Promise<void> => {
+    console.log(company);
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(company)
+    }
+    const response = await fetch(`http://localhost:5014/api/companies/${id}`, requestOptions)
+    if (!response.ok) {
+        throw new Error('Unable to update ' + id)
     }
 }

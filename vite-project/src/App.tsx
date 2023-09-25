@@ -3,11 +3,12 @@ import styled from "styled-components";
 import Company from "./models/Company";
 import { CompaniesList } from "./components/CompaniesList";
 import { CreateCompanyForm } from "./components/CreateCompanyForm";
-import { deleteCompanyById, getCompanies, postCompany } from "./services/companyService";
+import { deleteCompanyById, getCompanies, postCompany, updateCompanyById } from "./services/companyService";
 import CompanyForCreation from "./models/CompanyForCreation";
 import UserContextProvider from './context/UserContextProvider';
 import { LoginButton } from "./components/LoginButton";
 import "./general.css"
+import CompanyForUpdate from "./models/CompanyForUpdate";
 
 
 const App = () => {
@@ -22,6 +23,17 @@ const App = () => {
             await fetchCompanies();
         } catch (e) {
             console.log('Error when deleting company.', e)
+        }
+        setLoading(false);
+    }
+
+    const onClickUpdate = async (id: string, data: CompanyForUpdate) =>{
+        setLoading(true);
+        try {
+            await updateCompanyById(id, data);
+            await fetchCompanies();
+        } catch (e) {
+            console.log('Error when updating company.', e)
         }
         setLoading(false);
     }
@@ -72,7 +84,7 @@ const App = () => {
                 
                 <CreateCompanyForm onCreate={onClickCreate}/>
 
-                <CompaniesList companies={companies} onDelete={onClickDelete}/>
+                <CompaniesList companies={companies} onDelete={onClickDelete} onUpdate={onClickUpdate}/>
             </StyledApp>
         </UserContextProvider>
     )
