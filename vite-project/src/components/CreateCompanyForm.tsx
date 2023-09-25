@@ -21,11 +21,17 @@ export const CreateCompanyForm = ({onCreate}: {onCreate: (data:CompanyForCreatio
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder={"Company name"} { ...register("name") } />
-            <input type="text" placeholder={"Address"} { ...register("address") } />
-            <input type="text" placeholder={"Country"} { ...register("country") } />
-            <button type="submit">Skicka</button>
-        </form>
+        <>
+            {
+                userState.isLoggedIn  &&
+                    ( <form onSubmit={handleSubmit(onSubmit)}>
+                            <input type="text" placeholder={"Company name"} { ...register("name") } />
+                            <input type="text" placeholder={"Address"} { ...register("address") } />
+                            <input type="text" placeholder={"Country"} { ...register("country") } />
+                            <button type="submit">Skicka</button>
+                        </form>)
+            }
+        </>
     )
+    
 }

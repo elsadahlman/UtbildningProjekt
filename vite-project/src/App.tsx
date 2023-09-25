@@ -7,6 +7,7 @@ import { deleteCompanyById, getCompanies, postCompany } from "./services/company
 import CompanyForCreation from "./models/CompanyForCreation";
 import UserContextProvider from './context/UserContextProvider';
 import { LoginButton } from "./components/LoginButton";
+import "./general.css"
 
 
 const App = () => {
@@ -68,6 +69,7 @@ const App = () => {
             <StyledApp>
                 <h1>Companies</h1>
                 <LoginButton/>
+                
                 <CreateCompanyForm onCreate={onClickCreate}/>
 
                 <CompaniesList companies={companies} onDelete={onClickDelete}/>

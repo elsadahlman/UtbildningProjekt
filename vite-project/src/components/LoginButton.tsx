@@ -13,7 +13,7 @@ export const LoginButton = () => {
     }
 
     return (
-        <button onClick={toggleLogin} >{userState.isLoggedIn ? "Log out" : "Login"}</button>
+        <button className='login-button' onClick={toggleLogin} >{userState.isLoggedIn ? "Log out" : "Login"}</button>
     )
 
 }
