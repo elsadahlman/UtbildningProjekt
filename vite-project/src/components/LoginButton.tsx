@@ -6,12 +6,14 @@ export const LoginButton = () => {
     const {userState, setUserState} = useUserContext();
     
     const toggleLogin = () => {
-        setUserState();
+        console.log("in togglelogin", userState);
+        const newState = {...userState};
+        newState.isLoggedIn = !newState.isLoggedIn;
+        setUserState(newState);
     }
 
     return (
-     <button onClick={toggleLogin} >{userState.isLoggedIn ? "Log out" : "Login"}</button>
-    
+        <button onClick={toggleLogin} >{userState.isLoggedIn ? "Log out" : "Login"}</button>
     )
 
 }

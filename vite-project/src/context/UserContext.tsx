@@ -17,13 +17,13 @@ export const UserContext = createContext<UserContextType >({
     userState: {
         isLoggedIn: false
     },
-    setUserState: () => {console.log('not implemented');
+    setUserState: () => {
+        console.log("......");
     }
 });
 
 export const useUserContext = () => {
     const ctx = useContext(UserContext);
-    console.log(ctx);
     return ctx;
     
 };

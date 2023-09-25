@@ -6,6 +6,7 @@ import { CreateCompanyForm } from "./components/CreateCompanyForm";
 import { deleteCompanyById, getCompanies, postCompany } from "./services/companyService";
 import CompanyForCreation from "./models/CompanyForCreation";
 import UserContextProvider from './context/UserContextProvider';
+import { LoginButton } from "./components/LoginButton";
 
 
 const App = () => {
@@ -66,7 +67,7 @@ const App = () => {
             {loading  && "Loading...."}
             <StyledApp>
                 <h1>Companies</h1>
-                
+                <LoginButton/>
                 <CreateCompanyForm onCreate={onClickCreate}/>
 
                 <CompaniesList companies={companies} onDelete={onClickDelete}/>
