@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import CompanyForCreation from '../models/CompanyForCreation';
 import Employee from '../models/Employee';
+import { useUserContext } from '../context/UserContext';
 
 export const CreateCompanyForm = ({onCreate}: {onCreate: (data:CompanyForCreation) => void}) => {
 
@@ -10,6 +11,8 @@ export const CreateCompanyForm = ({onCreate}: {onCreate: (data:CompanyForCreatio
         country: string
         employees: Employee []
     }
+    const {userState} = useUserContext();
+    console.log(userState.isLoggedIn);
     
     const { register, handleSubmit } = useForm<FormValues>()
     

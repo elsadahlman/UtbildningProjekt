@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import Company from "./models/Company";
 import { CompaniesList } from "./components/CompaniesList";
 import { CreateCompanyForm } from "./components/CreateCompanyForm";
 import { deleteCompanyById, getCompanies, postCompany } from "./services/companyService";
 import CompanyForCreation from "./models/CompanyForCreation";
+import UserContextProvider from './context/UserContextProvider';
+
 
 const App = () => {
 
@@ -17,7 +19,7 @@ const App = () => {
             await deleteCompanyById(id);
             await fetchCompanies();
         } catch (e) {
-            console.log('Error when deleting company', e)
+            console.log('Error when deleting company.', e)
         }
         setLoading(false);
     }
@@ -28,16 +30,22 @@ const App = () => {
             await postCompany(data);
             await fetchCompanies();
         } catch (e) {
-            console.log('Error when posting new company', e)
+            console.log('Error when posting new company.', e)
         }
         setLoading(false);
     }
 
-    const fetchCompanies = async () => {
-        const companies = await getCompanies();
-        console.log(companies);
-        setCompanies(companies);
-    }
+    const fetchCompanies = useCallback(async () => {
+        setLoading(true);
+        try {
+            const newCompanies = await getCompanies();
+            setCompanies(newCompanies);
+        } catch (e) {
+            console.log('Error when posting new company', e)
+        }
+        setLoading(false);
+
+    }, [])
 
     useEffect(() => {
         const loadData = async () => {
@@ -46,27 +54,25 @@ const App = () => {
             setLoading(false);
         }
         loadData();
-    }, [])
-
+    }, [fetchCompanies]) 
 
     const StyledApp = styled.div`
         padding: 50px;
     `;
-    //test
+//useUserContext ska användas i komponenter som är barn till providern, och inte på den här nivån, se ex i CreateCompanyForm.
+// Man använder sin provider för att wrappa och då kommer de åt den aktuella contexten. 
     return (
-        <>
-        {loading  && "Loading...."}
+        <UserContextProvider>  
+            {loading  && "Loading...."}
+            <StyledApp>
+                <h1>Companies</h1>
+                
+                <CreateCompanyForm onCreate={onClickCreate}/>
 
-        <StyledApp>
-            <h1>Companies</h1>
-            
-            <CreateCompanyForm onCreate={onClickCreate}/>
-        
-            <CompaniesList companies={companies} onDelete={onClickDelete}/>
-
-
-        </StyledApp>
-        </>
+                <CompaniesList companies={companies} onDelete={onClickDelete}/>
+            </StyledApp>
+        </UserContextProvider>
     )
 }
+
 export default App

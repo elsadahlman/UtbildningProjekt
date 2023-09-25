@@ -1,8 +1,11 @@
 import CompanyForCreation from "../models/CompanyForCreation";
 
 export const getCompanies = async () => {
-    const response = await fetch(`http://localhost:5014/api/companies`)
-    return await response.json()
+    const response = await fetch(`http://localhost:5014/api/companies`);
+    if (!response.ok) {
+        throw new Error('Unable to fetch companies' )
+    }
+    return response.json()
 }
 
 export const postCompany = async (data: CompanyForCreation) => {
