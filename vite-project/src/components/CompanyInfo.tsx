@@ -5,10 +5,11 @@ import { AddEmployeeForm } from "./AddEmployeeForm";
 import CompanyForUpdate from "../models/CompanyForUpdate";
 
 const StyledCompanyView = styled.div`
-background-color: #fff4b9;
-padding: 10px;
-border: 4px solid #ffa32d;
-margin-bottom: 4px;
+background-color: rgb(255,255,255, 0.95);
+padding: 1em;
+border: 2px solid #8B776A;
+border-radius: 10px;
+margin-bottom: 1em;
 `
 
 const StyledAddCompanyButton = styled.button`
@@ -16,13 +17,14 @@ const StyledAddCompanyButton = styled.button`
     font-weight: 600;
     display: inline-block;
     transform: rotate(45deg);
-    color: red;
+    color: #433123;
     background: transparent;
     border: none;
     padding:0px;
-    margin-right: 0.5em;
+    margin:0;
     position: relative;
-    top:10px;
+    top:-0.7em;
+    float: right;
     `
 
 export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, onDelete: (id: string) => void, onUpdate: (id:string, data:CompanyForUpdate) => void}) =>{
@@ -31,7 +33,8 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
 
     return (
         <StyledCompanyView>
-            <h2 className="company-header">{userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>+</StyledAddCompanyButton>} {company.name}</h2>
+            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>+</StyledAddCompanyButton>}
+            <h2 className="company-header"> {company.name}</h2>
         
             <p><b>Location:</b> {company.address}</p>
             <hr/>
@@ -44,7 +47,7 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
                             <li><b>{employee.name}</b>, {employee.position}</li>
                         )}
                     </ul>
-                 </>
+                </>
             ) :  (
                 <b>Inga anställda registrerade</b>
             )}

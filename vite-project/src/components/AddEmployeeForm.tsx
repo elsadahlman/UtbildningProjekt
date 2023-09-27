@@ -30,7 +30,7 @@ export const AddEmployeeForm = ({company, onUpdate}: {company:CompanyForUpdate, 
                 userState.isLoggedIn  &&
                     ( 
                     <div>
-                        <h3>Lägg till anställda</h3>
+                        <h3>Lägg till anställd</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                             <input className='input' type="text" placeholder={"Name"} { ...register("name") } />
                             <input className='input' type="text" placeholder={"Age"} { ...register("age") } />

@@ -1,18 +1,27 @@
 .login-button {
     border-radius: 8px;
     border: 1px solid black;
-    padding: 0.8em 2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: blueviolet;
+    background-color: #73482F;
     cursor: pointer;
     transition: border-color 0.25s;
     margin-bottom: 15px;
+    width: 105px;
 }
 
 .header{
   text-shadow: whitesmoke 1px 1px 10px;
+  color: #261F1F;
+}
+
+.common-box{
+  background-color: rgb(255,255,255, 0.95);
+  padding: 10px;
+  border: 2px solid #8B776A;
+  border-radius: 10px;
+  margin-bottom: 1em;
 }
 
 .company-header{
@@ -20,22 +29,29 @@
 }
 
 .create-company{
-    background-color: aquamarine;
-    margin-bottom: 15px;
-    padding: 0.5em;
-    border: 4px solid #65cbe9;
+  background-color: rgb(255,255,255, 0.95);
+  padding: 1em;
+  border: 2px solid #8B776A;
+  border-radius: 10px;
+  margin-bottom: 1em;
 }
 
 .create-company-button{
-  background-color: #3fb5ff;
+  background-color: #94C6F2;
 }
 .create-employee-button{
-  background-color: #FF964F;
+  background-color: #94C6F2;
 
 }
-
+hr{
+  border-top: 3px dotted #261F1F;
+}
 .input{
+  display: block;
   margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px dotted;
+  border-radius: 5px;
   padding: 0.5em;
   font-size: medium;
 }
@@ -50,6 +66,7 @@
   width: max-content;
   margin: 0 auto; 
   position: relative;
+  width: 1000px;
 }
 
 .video-container{
@@ -62,6 +79,10 @@
     top: 0;
     bottom: 0;
     z-index: -1;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
   }
 
   iframe {
