@@ -12,7 +12,10 @@ margin-bottom: 4px;
 `
 
 const StyledAddCompanyButton = styled.button`
-background-color: #ff6bbf;
+background-color: red;
+position: fixed;
+top: 20px;
+right:20px;
 `
 
 
@@ -22,18 +25,26 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
 
     return (
         <StyledCompanyView>
-            <h3>{company.name}</h3>
-            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>Ta bort företag</StyledAddCompanyButton>}
+            <h2>{company.name}</h2>
+            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>X</StyledAddCompanyButton>}
 
             <p><b>Location:</b> {company.address}</p>
-            {/* <p>---------------------------------------------------------------</p> en divider */}
+            <hr/>
             <AddEmployeeForm company={company} onUpdate={onUpdate}></AddEmployeeForm>
-            <ul>{
-                    company.employees.map((employee) => 
-                        <li>{employee.name}</li>
-                    )
-                }
-            </ul>
+            {company.employees.length && (
+                <>
+                    <h3>Anställda</h3>
+                    <ul className="employee-list">{
+                        company.employees.map((employee) => 
+                            <li><b>{employee.name}</b>, {employee.position}</li>
+                        )}
+                    </ul>
+                 </>
+            )}
+            {!company.employees.length && (
+                <b>Inga anställda registrerade</b>
+            )}
+            
 
         </StyledCompanyView>
     )

@@ -84,7 +84,7 @@ const App = () => {
                     <iframe src="https://www.youtube.com/embed/rUsyqGED8CE?&controls=0&autoplay=1&mute=1&playsinline=1" ></iframe>
                 </div>
             <StyledApp className="app-over-video">
-                <h1>Företagslistan</h1>
+                <h1 className="header">Företagslistan</h1>
                 <LoginButton/>
                 
                 <CreateCompanyForm onCreate={onClickCreate}/>
