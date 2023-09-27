@@ -27,6 +27,18 @@ const App = () => {
         setLoading(false);
     }
 
+    const fetchCompanies = useCallback(async () => {
+        setLoading(true);
+        try {
+            const newCompanies = await getCompanies();
+            setCompanies(newCompanies);
+        } catch (e) {
+            console.log('Error when posting new company', e)
+        }
+        setLoading(false);
+
+    }, [])
+
     const onClickUpdate = async (id: string, data: CompanyForUpdate) =>{
         setLoading(true);
         try {
@@ -49,17 +61,7 @@ const App = () => {
         setLoading(false);
     }
 
-    const fetchCompanies = useCallback(async () => {
-        setLoading(true);
-        try {
-            const newCompanies = await getCompanies();
-            setCompanies(newCompanies);
-        } catch (e) {
-            console.log('Error when posting new company', e)
-        }
-        setLoading(false);
-
-    }, [])
+    
 
     useEffect(() => {
         const loadData = async () => {
@@ -82,7 +84,7 @@ const App = () => {
             <iframe src="https://www.youtube.com/embed/rUsyqGED8CE?&controls=0&autoplay=1&mute=1&playsinline=1" ></iframe>
             </div>
             <StyledApp className="app-over-video">
-                <h1>Companies</h1>
+                <h1>Företagslistan</h1>
                 <LoginButton/>
                 
                 <CreateCompanyForm onCreate={onClickCreate}/>

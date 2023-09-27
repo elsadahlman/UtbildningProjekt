@@ -23,7 +23,10 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
     return (
         <StyledCompanyView>
             <h3>{company.name}</h3>
+            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>Ta bort företag</StyledAddCompanyButton>}
+
             <p><b>Location:</b> {company.address}</p>
+            {/* <p>---------------------------------------------------------------</p> en divider */}
             <AddEmployeeForm company={company} onUpdate={onUpdate}></AddEmployeeForm>
             <ul>{
                     company.employees.map((employee) => 
@@ -31,7 +34,6 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
                     )
                 }
             </ul>
-            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>Ta bort företag</StyledAddCompanyButton>}
 
         </StyledCompanyView>
     )

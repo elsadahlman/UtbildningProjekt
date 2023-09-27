@@ -1,4 +1,3 @@
-import Company from "../models/Company";
 import CompanyForCreation from "../models/CompanyForCreation";
 import CompanyForUpdate from "../models/CompanyForUpdate";
 

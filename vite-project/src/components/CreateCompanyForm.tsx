@@ -24,12 +24,17 @@ export const CreateCompanyForm = ({onCreate}: {onCreate: (data:CompanyForCreatio
         <>
             {
                 userState.isLoggedIn  &&
-                    ( <form onSubmit={handleSubmit(onSubmit)}>
-                            <input type="text" placeholder={"Company name"} { ...register("name") } />
-                            <input type="text" placeholder={"Address"} { ...register("address") } />
-                            <input type="text" placeholder={"Country"} { ...register("country") } />
-                            <button type="submit">Skicka</button>
-                        </form>)
+                    ( 
+                    <div className="create-company">
+                        <p><b>Lägg till nytt företag</b></p>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input className='input' type="text" placeholder={"Company name"} { ...register("name") } />
+                            <input className='input' type="text" placeholder={"Address"} { ...register("address") } />
+                            <input className='input' type="text" placeholder={"Country"} { ...register("country") } />
+                            <p><button className='create-company-button' type="submit">Lägg till</button></p>
+                        </form>
+                    </div>
+                    )
             }
         </>
     )

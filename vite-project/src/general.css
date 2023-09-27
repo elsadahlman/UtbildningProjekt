@@ -1,13 +1,33 @@
 .login-button {
     border-radius: 8px;
     border: 1px solid black;
-    padding: 0.6em 1.2em;
+    padding: 0.8em 2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     background-color: blueviolet;
     cursor: pointer;
     transition: border-color 0.25s;
+    margin-bottom: 15px;
+}
+
+.create-company{
+    background-color: aquamarine;
+    opacity: 90%;
+    margin-bottom: 15px;
+    padding: 0.5em;
+}
+
+.create-company-button{
+  background-color: #3fb5ff;
+}
+.create-employee-button{
+  background-color: #FF964F;
+  margin-top: 1em;
+}
+
+.input{
+  margin-right: 0.5em;
 }
 
 
