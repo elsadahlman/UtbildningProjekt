@@ -19,7 +19,7 @@ const StyledAddCompanyButton = styled.button`
     transform: rotate(45deg);
     color: #433123;
     background: transparent;
-    border: none;
+    border: 1px solid #000; 
     padding:0px;
     margin:0;
     position: relative;

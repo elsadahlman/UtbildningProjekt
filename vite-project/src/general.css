@@ -4,7 +4,7 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #73482F;
+    background-color: #c2a392;
     cursor: pointer;
     transition: border-color 0.25s;
     margin-bottom: 15px;
@@ -14,14 +14,6 @@
 .header{
   text-shadow: whitesmoke 1px 1px 10px;
   color: #261F1F;
-}
-
-.common-box{
-  background-color: rgb(255,255,255, 0.95);
-  padding: 10px;
-  border: 2px solid #8B776A;
-  border-radius: 10px;
-  margin-bottom: 1em;
 }
 
 .company-header{
@@ -36,16 +28,28 @@
   margin-bottom: 1em;
 }
 
+.create-company-h2{
+  margin-top: 0px;
+}
+
 .create-company-button{
   background-color: #94C6F2;
+  border: 1px solid #42352b;
 }
 .create-employee-button{
   background-color: #94C6F2;
-
+  border: 1px solid #42352b;
 }
+
+.create-company-button:hover, .create-employee-button:hover, .login-button:hover {
+  background-color:  #42352b;
+  color:#f6fdf9 ;
+}
+
 hr{
   border-top: 3px dotted #261F1F;
 }
+
 .input{
   display: block;
   margin-right: 0.5em;
