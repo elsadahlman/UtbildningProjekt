@@ -7,7 +7,7 @@ import CompanyForUpdate from "../models/CompanyForUpdate";
 const StyledCompanyView = styled.div`
 background-color: rgb(255,255,255, 0.95);
 padding: 1em;
-border: 2px solid #8B776A;
+border: 1px solid #252926bb;
 border-radius: 10px;
 margin-bottom: 1em;
 `

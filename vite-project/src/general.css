@@ -4,24 +4,17 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #73482F;
+    background-color: #9eb1a5;
     cursor: pointer;
-    transition: border-color 0.25s;
     margin-bottom: 15px;
+    margin-top: -4rem;
     width: 105px;
+    float: right;
 }
 
 .header{
   text-shadow: whitesmoke 1px 1px 10px;
-  color: #261F1F;
-}
-
-.common-box{
-  background-color: rgb(255,255,255, 0.95);
-  padding: 10px;
-  border: 2px solid #8B776A;
-  border-radius: 10px;
-  margin-bottom: 1em;
+  color: #001408;
 }
 
 .company-header{
@@ -31,26 +24,44 @@
 .create-company{
   background-color: rgb(255,255,255, 0.95);
   padding: 1em;
-  border: 2px solid #8B776A;
+  border: 1px solid #25292677;
   border-radius: 10px;
   margin-bottom: 1em;
+  box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+/* -webkit-box-shadow: 1px -1px 7px 0px rgba(37,41,38,0.75);
+-moz-box-shadow: 1px -1px 7px 0px rgba(37,41,38,0.75) */
+
+
+}
+.create-company-h2{
+  margin-top: 0px;
 }
 
 .create-company-button{
-  background-color: #94C6F2;
-}
-.create-employee-button{
-  background-color: #94C6F2;
+  background-color:  #9eb1a5;
+  border: 1px solid #252926;
+
 
 }
-hr{
-  border-top: 3px dotted #261F1F;
+.create-company-button:hover, .create-employee-button:hover, .login-button:hover {
+  background-color:  #344b3a;
+  color:#f6fdf9 ;
 }
+
+.create-employee-button{
+  background-color: #9eb1a5;
+  border: 1px solid #252926;
+}
+
+hr{
+  border-top: 3px dotted #9eb1a5;
+}
+
 .input{
   display: block;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
-  border: 1px dotted;
+  border: 1px dotted #9eb1a5;
   border-radius: 5px;
   padding: 0.5em;
   font-size: medium;
