@@ -15,11 +15,15 @@
   text-shadow: whitesmoke 1px 1px 10px;
 }
 
+.company-header{
+  margin: 0px;
+}
+
 .create-company{
     background-color: aquamarine;
-    opacity: 90%;
     margin-bottom: 15px;
     padding: 0.5em;
+    border: 4px solid #65cbe9;
 }
 
 .create-company-button{

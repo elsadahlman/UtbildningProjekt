@@ -12,12 +12,18 @@ margin-bottom: 4px;
 `
 
 const StyledAddCompanyButton = styled.button`
-background-color: red;
-position: fixed;
-top: 20px;
-right:20px;
-`
-
+    font-size: 45px;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(45deg);
+    color: red;
+    background: transparent;
+    border: none;
+    padding:0px;
+    margin-right: 0.5em;
+    position: relative;
+    top:10px;
+    `
 
 export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, onDelete: (id: string) => void, onUpdate: (id:string, data:CompanyForUpdate) => void}) =>{
     
@@ -25,23 +31,21 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
 
     return (
         <StyledCompanyView>
-            <h2>{company.name}</h2>
-            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>X</StyledAddCompanyButton>}
-
+            <h2 className="company-header">{userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>+</StyledAddCompanyButton>} {company.name}</h2>
+        
             <p><b>Location:</b> {company.address}</p>
             <hr/>
             <AddEmployeeForm company={company} onUpdate={onUpdate}></AddEmployeeForm>
-            {company.employees.length && (
+            {company.employees.length ? (
                 <>
-                    <h3>Anställda</h3>
+                    <h3>Anställda:</h3>
                     <ul className="employee-list">{
                         company.employees.map((employee) => 
                             <li><b>{employee.name}</b>, {employee.position}</li>
                         )}
                     </ul>
                  </>
-            )}
-            {!company.employees.length && (
+            ) :  (
                 <b>Inga anställda registrerade</b>
             )}
             
