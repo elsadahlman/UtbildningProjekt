@@ -10,10 +10,23 @@
     transition: border-color 0.25s;
 }
 
+.app-over-video{
+  display: block;
+  width: max-content;
+  margin: 0 auto; 
+  position: relative;
+}
 
 .video-container{
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
   }
 
   iframe {
@@ -36,14 +49,9 @@
     .video-container iframe {
       /* width = 100 / (9 / 16) = 177.777777 */
       width: 177.78vh;
+      
     }
   }
 
-  .app-over-video{
-    position: absolute;
-    /* color: #FFFFFF; */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+
   

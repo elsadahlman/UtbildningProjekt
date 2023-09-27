@@ -79,8 +79,8 @@ const App = () => {
         <UserContextProvider>  
             {loading  && "Loading...."}
                 <div className="video-container">
-            <iframe src="https://www.youtube.com/embed/rUsyqGED8CE?&controls=0&autoplay=1&mute=1&playsinline=1" ></iframe>
-            </div>
+                    <iframe src="https://www.youtube.com/embed/rUsyqGED8CE?&controls=0&autoplay=1&mute=1&playsinline=1" ></iframe>
+                </div>
             <StyledApp className="app-over-video">
                 <h1>Companies</h1>
                 <LoginButton/>
