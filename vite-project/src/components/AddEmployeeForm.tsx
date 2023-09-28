@@ -36,7 +36,7 @@ export const AddEmployeeForm = ({company, onUpdate}: {company:CompanyForUpdate, 
                             <input className='input' type="text" placeholder={"Age"} { ...register("age") } />
                             <input className='input' type="text" placeholder={"Position"} { ...register("position") } />
                             <input className='input' type="text" placeholder={"Email"} { ...register("email") } />
-                            <p><button className='create-employee-button' type="submit">Lägg till</button></p>
+                            <button className='common-button create-employee-button' type="submit">Lägg till</button>
                         </form>
                         </div>
                         )

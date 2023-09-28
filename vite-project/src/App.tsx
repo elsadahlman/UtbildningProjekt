@@ -71,23 +71,28 @@ const App = () => {
         }
         loadData();
     }, [fetchCompanies]) 
-
+/* width:1000px */
     const StyledApp = styled.div`
         padding: 50px 0px;
-        width:1000px
+        
     `;
 //useUserContext ska användas i komponenter som är barn till providern, och inte på den här nivån, se ex i CreateCompanyForm.
-// Man använder sin provider för att wrappa och då kommer de åt den aktuella contexten. 
+// Man använder sin provider för att wrappa och då kommer de åt den aktuella contexten.  
+//aIXb-RPb358?start=72 lång berg
+// q53LiZ7A3dA kort hav
+// 8U_nLVItqdw kort hav
+// hasdCkzXrhE lång undervatten
     return (
         <UserContextProvider>  
             {/* {loading  && "Loading...."} */}
                 <div className="video-container">
-                    <iframe src="https://www.youtube.com/embed/aIXb-RPb358?start=72&controls=0&autoplay=1&mute=1&playsinline=1&loop=1" ></iframe>  
+                    <iframe src="https://www.youtube.com/embed/hasdCkzXrhE?controls=0&autoplay=1&mute=1&playsinline=1&playlist=hasdCkzXrhE&loop=1&start=85" ></iframe>  
                 </div>
             <StyledApp className="app-over-video">
+                <div className="header-container">
                 <h1 className="header">Företagslistan</h1>
                 <LoginButton/>
-                
+                </div>
                 <CreateCompanyForm onCreate={onClickCreate}/>
 
                 <CompaniesList companies={companies} onDelete={onClickDelete} onUpdate={onClickUpdate}/>

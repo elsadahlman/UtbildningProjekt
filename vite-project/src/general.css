@@ -1,83 +1,12 @@
-.login-button {
-    border-radius: 8px;
-    border: 1px solid black;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #9eb1a5;
-    cursor: pointer;
-    margin-bottom: 15px;
-    margin-top: -4rem;
-    width: 105px;
-    float: right;
-}
-
-.header{
-  text-shadow: whitesmoke 1px 1px 10px;
-  color: #001408;
-}
-
-.company-header{
-  margin: 0px;
-}
-
-.create-company{
-  background-color: rgb(255,255,255, 0.95);
-  padding: 1em;
-  border: 1px solid #25292677;
-  border-radius: 10px;
-  margin-bottom: 1em;
-  box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
-
-
-}
-.create-company-h2{
-  margin-top: 0px;
-}
-
-.create-company-button{
-  background-color:  #9eb1a5;
-  border: 1px solid #252926;
-
-
-}
-.create-company-button:hover, .create-employee-button:hover, .login-button:hover {
-  background-color:  #344b3a;
-  color:#f6fdf9 ;
-}
-
-.create-employee-button{
-  background-color: #9eb1a5;
-  border: 1px solid #252926;
-}
-
-hr{
-  border-top: 3px dotted #9eb1a5;
-}
-
-.input{
-  display: block;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
-  border: 1px dotted #9eb1a5;
-  border-radius: 5px;
-  padding: 0.5em;
-  font-size: medium;
-}
-
-.employee-list{
-  list-style: none;
-  padding-left: 0em;
-}
 
 .app-over-video{
-  display: block;
+  display: grid;
+  grid-template-columns: 500px;
+  grid-template-rows: auto;
   width: max-content;
   margin: 0 auto; 
   position: relative;
-  width: 1000px;
+  /* width: 1000px; */
 }
 
 .video-container{
@@ -104,6 +33,127 @@ hr{
     height: 100vh;
     transform: translate(-50%, -50%);
   }
+
+
+.login-button {
+    border: 1px solid #fff;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #031527ee;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1em;
+    width: 105px;
+}
+
+.header-container{
+/*   text-shadow: whitesmoke 1px 1px 10px; */
+ /*  color: #001408; */
+  color: #fff;
+  padding: 1em 0;
+  background-color: transparent!important;
+  border: none!important;
+  display: block;
+}
+.header{
+  margin: 0px;
+}
+
+.company-header{
+  margin: 0px;
+}
+
+.common-box{
+  /* background-color: rgb(255,255,255, 0.95); */
+  background-color: #031527ee;
+  color: rgba(255, 255, 255, 0.856);
+  padding: 1em;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  margin-bottom: 1em;
+/*   box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75); */
+}
+
+.common-button{
+  border-radius: 8px;
+  border: 1px solid #fff;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #031527ee;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.8em 0;
+  width: 105px;
+}
+
+.create-company{
+  background-color: rgb(255,255,255, 0.95);
+  padding: 1em;
+  border: 1px solid #25292677;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(37,41,38,0.75);
+}
+
+.create-company-h2{
+  margin-top: 0px;
+}
+/* 
+.create-company-button{
+  background-color:  #9eb1a5;
+  border: 1px solid #252926;
+} */
+
+.create-company-button:hover, .create-employee-button:hover, .login-button:hover{
+  background-color: #ce4257;/*  #cf3939; */
+  color:#f6fdf9 ;
+}
+
+.remove-company-button:hover{
+  color: #ce4257;
+}
+
+/* .create-employee-button{
+  background-color: #9eb1a5;
+  border: 1px solid #252926;
+}
+ */
+hr{
+  border-bottom: none;
+  border-top: 1px dashed #e2d7ff;
+ 
+}
+
+.input{
+  display: block;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  border: 2px solid #acc1d6;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: medium;
+}
+
+.employee-header{
+  margin:0;
+}
+
+.employee-list{
+  list-style:circle;
+  padding-left: 0em;
+  margin: 0 1em;
+}
+
+li::marker {
+  color: #ce4257;
+}
 
   @media (min-aspect-ratio: 16/9) {
     .video-container iframe {
