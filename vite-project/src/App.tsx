@@ -86,7 +86,7 @@ const App = () => {
         <UserContextProvider>  
             {/* {loading  && "Loading...."} */}
                 <div className="video-container">
-                    <iframe src="https://www.youtube.com/embed/hasdCkzXrhE?controls=0&autoplay=1&mute=1&playsinline=1&playlist=hasdCkzXrhE&loop=1&start=85" ></iframe>  
+                    <iframe src="https://www.youtube.com/embed/hasdCkzXrhE?controls=0&autoplay=1&mute=1&playsinline=1&playlist=hasdCkzXrhE&loop=1&start=90" ></iframe>  
                 </div>
             <StyledApp className="app-over-video">
                 <div className="header-container">
