@@ -22,7 +22,7 @@ const StyledAddCompanyButton = styled.button`
     padding:0px;
     margin:0;
     position: relative;
-    top:-0.7em;
+    top:-0.5em;
     float: right;
     `
 
@@ -32,7 +32,7 @@ export const CompanyInfo = ({company, onDelete, onUpdate}: {company: Company, on
 
     return (
         <StyledCompanyView>
-            {userState.isLoggedIn && <StyledAddCompanyButton type="button" onClick={async () => onDelete(company.id)}>+</StyledAddCompanyButton>}
+            {userState.isLoggedIn && <StyledAddCompanyButton type="button" className='remove-company-button' onClick={async () => onDelete(company.id)}>+</StyledAddCompanyButton>}
             <h2 className="company-header"> {company.name}</h2>
         
             <p><b>Location:</b> {company.address}</p>

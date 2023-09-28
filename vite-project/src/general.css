@@ -45,6 +45,9 @@
   background-color:  #42352b;
   color:#f6fdf9 ;
 }
+.remove-company-button:hover{
+  color: #c91a1a;
+}
 
 hr{
   border-top: 3px dotted #261F1F;
@@ -70,7 +73,6 @@ hr{
   width: max-content;
   margin: 0 auto; 
   position: relative;
-  width: 1000px;
 }
 
 .video-container{
